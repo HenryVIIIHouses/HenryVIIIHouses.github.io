@@ -13,16 +13,12 @@
             .colorful {
                 color: orange;
             }
-	@font-face { 
-		font-family: Anglican;
-		src: url(AnglicanText.ttf);
-		} 
-			h2{ { font-family: Anglican, sans-serif; }
-				
-			}@font-face {
-    font-family: myFirstFont;
+	@font-face {
+    font-family: Anglican;
+	font-size: 60px;
     src: url(AnglicanText.ttf);
 }
 
 div {
-    font-family: myFirstFont;
+    font-family: Anglican;, sans-serif; font-size: 60px; font-weight:normal;
+}

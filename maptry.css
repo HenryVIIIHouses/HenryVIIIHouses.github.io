@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="HHstyle.css">
-<body>
-<table style="width:100%">
-  <tr>
-    <th>
-    </th>
-    <th>
-	<div> The Houses of Henry VIII</div>
-	</th> 
-    <th></th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>
-	 <div class="embed-container">
+ <div class="embed-container">
           <iframe
             width="200"
             height="100"
@@ -38,22 +21,3 @@
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr>
-</table>
-</body>
-
-</head>
-</html>
