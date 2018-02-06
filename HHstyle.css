@@ -19,4 +19,10 @@
 		} 
 			h2{ { font-family: Anglican, sans-serif; }
 				
-			}
+			}@font-face {
+    font-family: myFirstFont;
+    src: url(AnglicanText.ttf);
+}
+
+div {
+    font-family: myFirstFont;
