@@ -16,8 +16,19 @@ h9 {
 }
 
 h8 {
-	font-family: aniron;, sans-serif; font-size: 20px; font-weight:normal;
+	font-family: aniron;, sans-serif; font-weight:normal;
 }
+
+@font-face {
+    font-family: aniron;
+	font-size: 30px;
+    src: url(anirm___.ttf);
+}
+
+h10 {
+	font-family: aniron;, sans-serif; font-size: 10px; font-weight:normal;
+}
+
 * {
     box-sizing: border-box;
 }
