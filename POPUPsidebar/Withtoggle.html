@@ -50,7 +50,11 @@
   </style>
     
   <script src="https://js.arcgis.com/3.23/"></script>
+  <button onclick="myFunction()">Click Me</button>
+
+<div id="myDIV">
   
+</div>
   <script>
   
     require([
@@ -200,10 +204,22 @@ function(
             layer.setVisibleLayers(visibleLayerIds);
           }
         });
+		
+		<div>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</div>
     </script> 
  
 </head>
 <body>
+
 
         Layer: <span id="layer_list"><input type='checkbox' class='list_item' id='layer0CheckBox' value=0 />Houses&nbsp;&nbsp;
            <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" 
