@@ -143,14 +143,6 @@ require([
             displayPopupContent(popup.getSelectedFeature());
           });
  
-          connect.connect(popup, "onClearFeatures", function() {
-            //dom.byId replaces dojo.byId
-            
-			dom.byId("featureCount").innerHTML = "Select a house";
-            registry.byId("leftPane").set("content", "");
-            domUtils.hide(dom.byId("pager"));
-          });
-
           connect.connect(popup, "onSetFeatures", function() {
             displayPopupContent(popup.getSelectedFeature());
            
