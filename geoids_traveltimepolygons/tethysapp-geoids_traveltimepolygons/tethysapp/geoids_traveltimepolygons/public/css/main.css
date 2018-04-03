@@ -1,0 +1,48 @@
+@font-face {
+    font-family: black;
+	font-size: 60px;
+    src: url(BLKCHCRY.TTF);
+}
+
+h1 {
+    font-family: black;, sans-serif; font-size: 30px; font-weight:normal;
+}
+
+@font-face {
+    font-family: black;
+	font-size: 60px;
+    src: url(BLKCHCRY.TTF);
+}
+
+h2 {
+    font-family: black;, sans-serif; font-size: 50px; font-weight:normal;
+}
+
+@font-face {
+    font-family: cant;
+	font-size: 60px;
+    src: url(Canterbury.ttf);
+}
+
+h3 {
+    font-family: cant;, sans-serif; font-size: 60px; font-weight:normal;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: ;
+    color: white;
+    text-align: center;
+}
+
+h4 {
+    font-family: black;, sans-serif; font-size: 20px; font-weight:normal; color: black;
+}
+
+@font-face {
+    font-family: black;
+	font-size: 60px;
+    src: url(BLKCHCRY.TTF);
