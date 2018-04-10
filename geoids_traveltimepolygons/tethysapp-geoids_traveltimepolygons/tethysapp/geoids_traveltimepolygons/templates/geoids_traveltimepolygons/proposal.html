@@ -1,0 +1,62 @@
+{% extends "geoids_traveltimepolygons/base.html" %}
+
+{% block app_content %}
+<h1>Project Proposal</h1>
+<br>
+<br>
+<p>Team: Geoids</p>
+<p>Team Members: Tyler Mickelson, Luke Newey, and Joseph Browning</p>
+<br>
+<br>
+<p>Project Goal:</p>
+<p>Travel Time Calculator. This application would calculate travel times in a vehicle, on bike, or on foot showing the user a radius of where they could get to in a specified time. This solves a traffic engineering problem that includes calculating FFS, LOS, distance, and temporal variation of traffic. We could add to this, for example it could calculate the population living within a certain travel time to predict trips that could be attracted to an area, or it could show an elevation profile along a line drawn to help walkers/runners/bikers pick the best 10 minute path, it could populate a list of known places/locations within a given time like stores, government buildings etc.
+</p>
+<p>From an engineering standpoint this could be a critical tool for transportation planners and traffic engineers to get instant feedback on the market area of a new development. It could be used as a PR tool to help the community see what is available to them nearby. Typically this kind of analysis is run on complex GIS modeling software and is available to very few people. We believe that if this information could be more readily shared across the region and help decision makers to make informed decision that will improve the transportation infrastructure of the city.
+</p>
+<br>
+<br>
+<p>Required Vector and Raster Analysis: Some sort of network analysis will be required for the vector data, which consists of roads. Travel times for bicycles could be estimated using raster analysis when considering slope.
+</p>
+<br>
+<br>
+<p>Data:</p>
+<li>Utah Roads.- <a href="https://gis.utah.gov/#data/">https://gis.utah.gov/#data/</a></li>
+<li>Speed Limits - <a href="https://gis.utah.gov/#data/">https://gis.utah.gov/#data/</a></li>
+<li>Addresses - <a href="https://gis.utah.gov/#data/">https://gis.utah.gov/#data/</a></li>
+<li>DEM - <a href="https://gis.utah.gov/#data/">https://gis.utah.gov/#data/</a></li>
+<li>Live Traffic - <a href="http://commuterlink.utah.gov/">http://commuterlink.utah.gov/</a></li>
+<li>Bike Lanes and Trails - <a href="https://gis.utah.gov/#data/">https://gis.utah.gov/#data/</a></li>
+<li>AADT - <a href="https://www.udot.utah.gov/main/f?p=100:pg:0::::V,T:,528/">https://www.udot.utah.gov/main/f?p=100:pg:0::::V,T:,528/</a> (available for last 10 years)</li>
+<br>
+<br>
+<p>Geoprocessing Workflow: Calculate travel times based on speeds from existing traffic conditions and speed limits and use the network analyst tool to create a series of polygons that connect routes based on travel times. Travel times for bicycles could be calculated factoring in slope, which would use the slope tool with some DEM data.
+</p>
+<br>
+<br>
+<p>User Interface:</p>
+<ol>
+    <li>User Picks a starting point (by clicking on the map, typing in an address, or coordinates)</li>
+    <li>User selects mode of transportation</li>
+    <li>User Selects the time of day they would like to travel (this wouldn’t affect walking or biking so much but may have an impact on driving so maybe this option is only available for drivers)
+    </li>
+    <li>User selects one or more time periods they would like to look at (10, 15, 30 min etc)</li>
+    <li>User clicks display/calculate</li>
+    <li>The app creates a colored shapefile for each selected time period. Each shape file is centered at the starting point and shows the boundary in every direction for how far that person could get in the given time.
+    </li>
+</ol>
+<br>
+<br>
+<p>How the Code will be Stored:</p>
+<p>The code will be stored using a newly formed Github account named: BYU Geoid. A strong emphasis will be placed on providing simple and clear instructions for the user on the Github page.
+</p>
+<br>
+<br>
+<p>License: This application will be given a generic open source licensing agreement with no proprietary claims.</p>
+<br>
+<br>
+<p>Project Responsibilities:</p>
+<li>Tyler: Concept, user interface, script coding</li>
+<li>Luke: Github, data manipulation, script coding</li>
+<li>Joseph: Data collection, script coding</li>
+
+{% endblock %}
