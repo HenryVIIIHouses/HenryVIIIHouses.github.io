@@ -81,14 +81,12 @@ require([
     LayerList
 ) {
       arcgisUtils.createMap("1c5fab1a661847ab95572d9ced4ec912", "map").then(function(response){
-
         var myWidget = new LayerList({
            map: response.map,
            layers: arcgisUtils.getLayerList(response)
         },"layerList");
         myWidget.startup();
     });
-
 });
 </script>
   <script>
@@ -122,61 +120,27 @@ require([
       Popup
     ) {
       ready(function() {
-
         parser.parse();
 		
-		
-        arcgisUtils.createMap("1c5fab1a661847ab95572d9ced4ec912", "map")
-          .then(function(response) {
-            window.map = response.map;
-            map.infoWindow.set("popupWindow", false);
-            initializeSidebar(window.map);
-          }, function(error) {
-            console.log("Map creation failed: ", dojo.toJson(error));
-          });
+	
 
-        function initializeSidebar(map) {
-          var popup = map.infoWindow;
-
-		  
-          connect.connect(popup, "onSelectionChange", function() {
-            displayPopupContent(popup.getSelectedFeature());
-          });
- 
-         
-
-        function displayPopupContent(feature) {
-          if (feature) {
-            var content = feature.getContent();
-            registry.byId("leftPane").set("content", content);
-          }
-        }
-
-        function selectPrevious() {
-          window.map.infoWindow.selectPrevious();
-        }
-
-        function selectNext() {
-          window.map.infoWindow.selectNext();
-        }
-      });
-    });
   </script>
 
 </head>
 
 <body class="claro">
-  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" 
+ 
+ <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" 
     data-dojo-props="design:'headline',gutters:false" 
-    style="width:100%; height:100%;">
+    style="width:100%; height:60%;">
+    <div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
     <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false" 
-      region="left" style="width: 20%;height:100%;">
-      <div id="leftPane" data-dojo-type="dijit/layout/ContentPane" 
-        data-dojo-props="region:'center'"></div>
-      <div id="header" data-dojo-type="dijit/layout/ContentPane" 
-        data-dojo-props="region:'top'">
-        <div id="featureCount" style="margin-bottom:5px;">Select a house</div>
+      region="center" style="width:20%;height:100%;">
+      
+     
+        
         <div id="pager" style="display:none;"> 
+        
           <a href='javascript:void(0);' id ="previous" class='nav' style="text-decoration: none;">
               &lt; Prev
           </a> &nbsp; 
@@ -193,7 +157,7 @@ require([
   </div>
   <div class="container" data-dojo-type="dijit/layout/BorderContainer"
 data-dojo-props="design:'headline',gutters:false">
-<div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
+
     <div id="layerList"></div>
 </div>
 </div>

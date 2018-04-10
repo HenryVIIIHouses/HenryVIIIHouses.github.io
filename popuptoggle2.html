@@ -81,14 +81,12 @@ require([
     LayerList
 ) {
       arcgisUtils.createMap("1c5fab1a661847ab95572d9ced4ec912", "map").then(function(response){
-
         var myWidget = new LayerList({
            map: response.map,
            layers: arcgisUtils.getLayerList(response)
         },"layerList");
         myWidget.startup();
     });
-
 });
 </script>
   <script>
@@ -122,7 +120,6 @@ require([
       Popup
     ) {
       ready(function() {
-
         parser.parse();
 		
 		
@@ -134,40 +131,28 @@ require([
           }, function(error) {
             console.log("Map creation failed: ", dojo.toJson(error));
           });
-
         function initializeSidebar(map) {
           var popup = map.infoWindow;
-
 		  
           connect.connect(popup, "onSelectionChange", function() {
             displayPopupContent(popup.getSelectedFeature());
           });
  
-          connect.connect(popup, "onClearFeatures", function() {
-            //dom.byId replaces dojo.byId
-            
-			dom.byId("featureCount").innerHTML = "Select a house";
-            registry.byId("leftPane").set("content", "");
-            domUtils.hide(dom.byId("pager"));
-          });
-
+          
           connect.connect(popup, "onSetFeatures", function() {
             displayPopupContent(popup.getSelectedFeature());
            
           });
         }
-
         function displayPopupContent(feature) {
           if (feature) {
             var content = feature.getContent();
             registry.byId("leftPane").set("content", content);
           }
         }
-
         function selectPrevious() {
           window.map.infoWindow.selectPrevious();
         }
-
         function selectNext() {
           window.map.infoWindow.selectNext();
         }
@@ -187,7 +172,6 @@ require([
         data-dojo-props="region:'center'"></div>
       <div id="header" data-dojo-type="dijit/layout/ContentPane" 
         data-dojo-props="region:'top'">
-        <div id="featureCount" style="margin-bottom:5px;">Select a house</div>
         <div id="pager" style="display:none;"> 
           <a href='javascript:void(0);' id ="previous" class='nav' style="text-decoration: none;">
               &lt; Prev
