@@ -6,13 +6,13 @@
 }
 
 h9 {
-    font-family: Anglican;, sans-serif; font-size: 60px; font-weight:normal;
+    font-family: aniron;, sans-serif; font-size: 60px; font-weight:normal;
 }
 
 @font-face {
     font-family: aniron;
 	font-size: 30px;
-    src: url(anirm___.ttf);
+    src: url(anirb___.ttf);
 }
 
 h8 {
