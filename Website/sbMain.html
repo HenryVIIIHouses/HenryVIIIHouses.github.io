@@ -15,10 +15,10 @@
 	</div>
 
 	<div class="topnav">
-	  <a href="#"><h8>Workers</h8></a>
-	  <a href="#"><h8>Women Workers</h8></a>
-	  <a href="#"><h8>Pictures of Hank</h8></a>
-	  <a href="#"><h8>Info</h8></a>
+	  <a href="#"><h8>&nbsp;Workers</h8></a>
+	  <a href="#"><h8>&nbsp;Women Workers</h8></a>
+	  <a href="#"><h8>&nbsp;Pictures of Hank</h8></a>
+	  <a href="#"><h8>&nbsp;Info</h8></a>
 
 	  </div>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -63,15 +63,14 @@
 
         parser.parse();
 
-        //setup event handlers for the next/previous buttons
+		
         on(dom.byId("previous"), "click", selectPrevious);
         on(dom.byId("next"), "click", selectNext);
 
-        //Create a map based on an ArcGIS Online web map id 
-        arcgisUtils.createMap("0b29cd56661a4eb09f4e6e72f2efb2be", "map")
+        
+        arcgisUtils.createMap("01fd4654cc3740be88d86e38dbfcb428", "map")
           .then(function(response) {
             window.map = response.map;
-            //set the popup's popupWindow property to false. This prevents the popup from displaying
             map.infoWindow.set("popupWindow", false);
             initializeSidebar(window.map);
           }, function(error) {
@@ -81,28 +80,25 @@
         function initializeSidebar(map) {
           var popup = map.infoWindow;
 
-          //when the selection changes update the side panel to display the popup info for the 
-          //currently selected feature. 
+       
           connect.connect(popup, "onSelectionChange", function() {
             displayPopupContent(popup.getSelectedFeature());
           });
 
-          //when the selection is cleared remove the popup content from the side panel. 
+          
           connect.connect(popup, "onClearFeatures", function() {
-            //dom.byId replaces dojo.byId
+          
             dom.byId("featureCount").innerHTML = "Click to select feature";
-            //registry.byId replaces dijit.byId
+          
             registry.byId("leftPane").set("content", "");
             domUtils.hide(dom.byId("pager"));
           });
 
-          //When features are associated with the map's info window update the sidebar with the new content. 
           connect.connect(popup, "onSetFeatures", function() {
             displayPopupContent(popup.getSelectedFeature());
             if (popup.features.length > 1) {
               dom.byId("featureCount").innerHTML = popup.features.length + " features selected";
-              //enable navigation if more than one feature is selected 
-              domUtils.show(dom.byId("pager"))
+               domUtils.show(dom.byId("pager"))
             } else {
               dom.byId("featureCount").innerHTML = popup.features.length + " feature selected";
               domUtils.hide(dom.byId("pager"));
@@ -124,7 +120,9 @@
         function selectNext() {
           window.map.infoWindow.selectNext();
         }
+
       });
+	  
     });
   </script>
 </head>
@@ -132,9 +130,9 @@
 <body class="claro">
   <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" 
     data-dojo-props="design:'headline',gutters:false" 
-    style="width:100%; height:100%;">
+    style="width:100%; height:80%;">
     <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false" 
-      region="left" style="width: 20%;height:100%;">
+      region="left" style="width: 20%;height:100;">
       <div id="leftPane" data-dojo-type="dijit/layout/ContentPane" 
         data-dojo-props="region:'center'"></div>
       <div id="header" data-dojo-type="dijit/layout/ContentPane" 
