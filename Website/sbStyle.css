@@ -48,12 +48,13 @@ h9 {
 }
 
 h8 {
-	font-family: aniron;, sans-serif; font-weight:normal;
+	font-family: aniron;, sans-serif; font-weight:normal; color:white;
 }
 
 @font-face {
     font-family: aniron;
 	font-size: 30px;
+	
     src: url(anirm___.ttf);
 }
 
