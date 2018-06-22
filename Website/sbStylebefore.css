@@ -33,7 +33,7 @@
 	@font-face {
     font-family: Anglican;
 	font-size: 60px;
-    /* src: url(AnglicanText.ttf); */
+    src: url(AnglicanText.ttf);
 }
 
 
@@ -79,7 +79,34 @@ body {
   margin: 0;
 }
 
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
 
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
 
 .embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}
 
