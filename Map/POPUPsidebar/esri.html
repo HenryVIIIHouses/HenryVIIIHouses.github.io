@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Popup dock positions - 4.6</title>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+view.popup.dockOptions = {
+  // Disable the dock button so users cannot undock the popup
+  buttonEnabled: false,
+  // Dock the popup when the size of the view is less than or equal to 600x1000 pixels
+  breakpoint: {
+    width: 1000,
+    height: 1000
+  }
+};
+ 
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.6/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/WebMap",
+
+      "dojo/dom",
+      "dojo/on",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, WebMap,
+      dom, on
+    ) {
+
+      var webmap = new WebMap({
+        portalItem: { // autocasts as new PortalItem()
+          id: "3af548bac6054938b615d08104197ba0"
+        }
+      });
+
+      var view = new MapView({
+        map: webmap,
+        popup: {
+          dockEnabled: true,
+          dockOptions: {
+            // Disables the dock button from the popup
+            buttonEnabled: false,
+            // Ignore the default sizes that trigger responsive docking
+            breakpoint: false,
+          }
+        },
+        container: "viewDiv"
+      });
+
+      popup = map.infoWindow;
+
+      view.when(function() {
+
+        var centerPoint = view.center.clone();
+
+        popup.open({
+          title: "Popup dock positions",
+          location: centerPoint,
+          content: "Use the control in the center of the map to change the location where the popup will dock."
+        });
+
+        // Watch currentDockPosition of the popup and open the
+        // popup at the specified position.
+        popup.watch("currentDockPosition", function(value) {
+          popup.visible = true;
+        });
+
+        var selectNode = dom.byId("dockPositionControl");
+
+        // Let user change the position dockOptions.position property of the
+        // popup at runtime from the drop-down list.
+        on(selectNode, "change", function(e) {
+          popup.set("dockOptions", {
+            breakpoint: false,
+            buttonEnabled: false,
+            position: e.target.value
+          });
+        });
+
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv">
+  
+  </div>
+</body>
+
+</html>
