@@ -46,12 +46,7 @@
       ready(function() {
 
         parser.parse();
-
-		
-        on(dom.byId("previous"), "click", selectPrevious);
-        on(dom.byId("next"), "click", selectNext);
-
-        
+     
         arcgisUtils.createMap("ec0dee2f43004a54aa17cdf31c1cf394", "map")
           .then(function(response) {
             window.map = response.map;
@@ -72,7 +67,7 @@
           
           connect.connect(popup, "onClearFeatures", function() {
           
-            dom.byId("featureCount").innerHTML = "Click to select feature";
+            dom.byId("featureCount").innerHTML = "Click to select House";
           
             registry.byId("leftPane").set("content", "");
             domUtils.hide(dom.byId("pager"));
