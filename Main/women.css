@@ -1,0 +1,8 @@
+div {
+   word-wrap: break-word;
+   width: 600px;
+}
+
+div.a {
+    text-align: center;
+}
