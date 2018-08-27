@@ -75,7 +75,8 @@
           });
 
           connect.connect(popup, "onSetFeatures", function() {
-            displayPopupContent(popup.getSelectedFeature());
+            dom.byId("featureCount").innerHTML = " ";
+			displayPopupContent(popup.getSelectedFeature());
           
           });
         }
@@ -93,9 +94,30 @@
 	  
     });
   </script>
+  <script type="text/javascript">
+    function PopUp(hideOrshow) {
+    if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
+    else document.getElementById('ac-wrapper').removeAttribute('style');
+}
+window.onload = function () {
+    setTimeout(function () {
+        PopUp('show');
+    }, 5000);
+}
+</script>
 </head>
 
 <body class="claro">
+  <div id="ac-wrapper" style='display:none'>
+    <div id="popup">
+        <center>
+             <h3>Zoom in on a point to select a house.</h3>
+			 
+			 <h4>(Hold Shift and click-and-drag over an area to zoom in.)</h4>    
+            <input type="submit" name="OK" value="OK" onClick="PopUp('hide')" />
+        </center>
+    </div>
+</div>
   <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" 
     data-dojo-props="design:'headline',gutters:false" 
     style="width:100%; height:100%;">
@@ -107,9 +129,9 @@
       <div id="header" data-dojo-type="dijit/layout/ContentPane" 
         data-dojo-props="region:'top'">
         <div id="featureCount" style="margin-bottom:5px;">
-		Zoom in on a point to select a house.<p>
-		<h6>(Hold Shift and click and drag over an area to zoom in.)
-		</h6></p></div>
+		<p><dr>
+		<dr>
+		</p></div>
         <div id="pager" style="display:none;"> 
                
         </div>
@@ -117,6 +139,7 @@
     </div>
     <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
   </div>
+  
 </body>
 
 </html> 

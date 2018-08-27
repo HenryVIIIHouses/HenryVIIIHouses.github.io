@@ -67,7 +67,8 @@
           
           connect.connect(popup, "onClearFeatures", function() {
           
-                 dom.byId("featureCount").innerHTML = "Click to select House";
+                 dom.byId("featureCount").innerHTML = "Zoom in on a point to select a house.<dr>"+
+				 "<dr>(Hold Shift and click and drag over an area to zoom in.)";
 															
           
             registry.byId("leftPane").set("content", "");
@@ -76,7 +77,7 @@
 
           connect.connect(popup, "onSetFeatures", function() {
             displayPopupContent(popup.getSelectedFeature());
-          
+            
           });
         }
 
@@ -87,7 +88,13 @@
           }
         }
 
-     
+        function selectPrevious() {
+          window.map.infoWindow.selectPrevious();
+        }
+
+        function selectNext() {
+          window.map.infoWindow.selectNext();
+        }
 
       });
 	  
@@ -107,9 +114,7 @@
       <div id="header" data-dojo-type="dijit/layout/ContentPane" 
         data-dojo-props="region:'top'">
         <div id="featureCount" style="margin-bottom:5px;">
-		Zoom in on a point to select a house.<p>
-		<h6>(Hold Shift and click and drag over an area to zoom in.)
-		</h6></p></div>
+		</div>
         <div id="pager" style="display:none;"> 
                
         </div>
